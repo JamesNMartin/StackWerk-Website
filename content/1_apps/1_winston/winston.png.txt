@@ -1,0 +1,9 @@
+Template: icon
+
+----
+
+Alt: Winston's icon: a baby mastodon with its trunk raised, in a purple speech bubble
+
+----
+
+Uuid: UNIbKRmOdR33nyF1

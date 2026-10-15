@@ -1,0 +1,9 @@
+label: Search & sharing
+icon: search
+fields:
+  description:
+    label: Description
+    type: textarea
+    buttons: false
+    maxlength: 200
+    help: Shown by search engines and in link previews. Leave empty to use the page's own summary.

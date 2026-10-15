@@ -1,0 +1,283 @@
+title: App
+icon: box
+
+tabs:
+  overview:
+    label: Overview
+    icon: home
+    columns:
+      main:
+        width: 2/3
+        fields:
+          eyebrow:
+            label: Eyebrow
+            type: text
+            width: 1/2
+            help: The small line above the app's name, e.g. "Mastodon for Windows".
+          availability:
+            label: Availability
+            type: select
+            width: 1/2
+            default: available
+            required: true
+            options:
+              available: Available
+              beta: Beta
+              soon: Coming soon
+          tagline:
+            label: Tagline
+            type: text
+            required: true
+            help: One sentence, shown under the name and on app cards.
+          summary:
+            label: Summary
+            type: textarea
+            buttons: false
+            size: small
+          platform:
+            label: Platform
+            type: text
+            width: 1/3
+            help: e.g. "Windows 10 & 11"
+          price:
+            label: Price
+            type: text
+            width: 1/3
+            help: e.g. "Free"
+          color:
+            label: Accent colour
+            type: color
+            width: 1/3
+            default: "#5a43d6"
+            help: Used for buttons and highlights on the app's page.
+          category:
+            label: Category
+            type: select
+            width: 1/2
+            default: UtilitiesApplication
+            help: How search engines file the app.
+            options:
+              BusinessApplication: Business
+              CommunicationApplication: Communication
+              DeveloperApplication: Developer tools
+              EducationalApplication: Education
+              EntertainmentApplication: Entertainment
+              GameApplication: Game
+              MultimediaApplication: Multimedia
+              SocialNetworkingApplication: Social networking
+              UtilitiesApplication: Utilities
+          hero:
+            label: Hero screenshot
+            width: 1/2
+            type: files
+            max: 1
+            query: page.images.template("screenshot")
+            uploads: screenshot
+          heroDark:
+            label: Hero screenshot, dark theme
+            width: 1/2
+            type: files
+            max: 1
+            query: page.images.template("screenshot")
+            uploads: screenshot
+            help: Optional. Shown instead to visitors whose device is in dark mode.
+      sidebar:
+        width: 1/3
+        sections:
+          icon:
+            label: App icon
+            type: files
+            template: icon
+            max: 1
+            layout: cards
+            image:
+              back: transparent
+              cover: false
+          pages:
+            label: Pages
+            type: pages
+            template: legal
+            help: e.g. the app's privacy policy, linked from the app's page.
+
+  downloads:
+    label: Downloads
+    icon: download
+    fields:
+      github:
+        label: GitHub repository
+        type: text
+        width: 1/2
+        placeholder: owner/repo
+        pattern: '[A-Za-z0-9_.\-]+\/[A-Za-z0-9_.\-]+'
+        help: Download buttons link to the files of this repository's latest release.
+      downloadButton:
+        label: Download button text
+        type: text
+        width: 1/2
+        placeholder: Download
+        help: e.g. "Download for Windows"
+      downloadNote:
+        label: Download note
+        type: text
+        help: A short line under the download buttons.
+      downloads:
+        label: Downloads
+        type: structure
+        help: Each download links to the latest release's file that matches its pattern (* matches anything, like the version number). Without a match it links to the release page.
+        columns:
+          label: true
+          file: true
+          kind: true
+          primary: true
+        fields:
+          label:
+            label: Label
+            type: text
+            width: 1/3
+            required: true
+          text:
+            label: Who it's for
+            type: text
+            width: 2/3
+          file:
+            label: File pattern
+            type: text
+            width: 1/3
+            required: true
+            placeholder: App-Setup-*-x64.exe
+          kind:
+            label: Kind
+            type: select
+            width: 1/3
+            default: installer
+            options:
+              installer: Installer
+              portable: Portable
+          primary:
+            label: Main button
+            type: toggle
+            width: 1/3
+            help: Used for the big download button.
+      install:
+        label: Install steps
+        type: structure
+        fields:
+          title:
+            label: Step
+            type: text
+            required: true
+          text:
+            label: Details
+            type: textarea
+            buttons: [bold, italic, link]
+            size: small
+      requirements:
+        label: Requirements
+        type: structure
+        fields:
+          label:
+            label: Label
+            type: text
+            width: 1/3
+            required: true
+          value:
+            label: Requirement
+            type: text
+            width: 2/3
+            required: true
+
+  features:
+    label: Features
+    icon: star
+    fields:
+      featuresHeadline:
+        label: Features headline
+        type: text
+        width: 1/2
+      featuresIntro:
+        label: Features intro
+        type: text
+        width: 1/2
+      features:
+        label: Features
+        type: structure
+        fields:
+          icon:
+            extends: fields/icon
+          title:
+            label: Title
+            type: text
+            width: 2/3
+            required: true
+          text:
+            label: Text
+            type: textarea
+            buttons: false
+            size: small
+      nativeHeadline:
+        label: Platform headline
+        type: text
+        width: 1/2
+      nativeText:
+        label: Platform text
+        type: text
+        width: 1/2
+      nativeItems:
+        label: Platform features
+        type: tags
+        help: Short items shown as a list, e.g. "Mica backdrops".
+      privacyHeadline:
+        label: Privacy headline
+        type: text
+      privacyText:
+        label: Privacy text
+        type: textarea
+        buttons: [bold, italic, link, code]
+        size: small
+
+  screenshots:
+    label: Screenshots
+    icon: image
+    columns:
+      main:
+        width: 1/3
+        fields:
+          galleryHeadline:
+            label: Gallery headline
+            type: text
+          galleryIntro:
+            label: Gallery intro
+            type: textarea
+            buttons: false
+            size: small
+      gallery:
+        width: 2/3
+        sections:
+          screenshots:
+            label: Screenshots
+            type: files
+            template: screenshot
+            layout: cards
+            info: "{{ file.caption }}"
+            image:
+              ratio: 4/3
+
+  faq:
+    label: FAQ
+    icon: question
+    fields:
+      faq:
+        label: Questions
+        type: structure
+        fields:
+          question:
+            label: Question
+            type: text
+            required: true
+          answer:
+            label: Answer
+            type: textarea
+            buttons: [bold, italic, link, code]
+            size: small
+
+  seo: tabs/seo

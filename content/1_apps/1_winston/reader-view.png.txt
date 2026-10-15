@@ -1,0 +1,17 @@
+Template: screenshot
+
+----
+
+Alt: Columns on the left and an article open in reader view in a panel on the right
+
+----
+
+Caption: Links open beside your feed, with a reader view
+
+----
+
+Sort: 5
+
+----
+
+Uuid: 2U4fzkWoKFbdsEHW

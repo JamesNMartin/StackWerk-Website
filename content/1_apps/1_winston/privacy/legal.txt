@@ -1,0 +1,65 @@
+Title: Privacy policy
+
+----
+
+Updated: 2026-10-15
+
+----
+
+Intro: Winston doesn't collect anything about you for StackWerk. It talks to the Mastodon servers you choose, and keeps everything else on your PC.
+
+----
+
+Text:
+
+## The short version
+
+- Winston has no StackWerk account, no analytics, no crash reporting and no ads.
+- It connects to the Mastodon servers you sign in to, and to websites only when you open them.
+- Your settings, accounts and drafts are stored on your PC, and your sign-in tokens are encrypted by Windows.
+
+## What Winston stores on your PC
+
+Winston keeps its data in `%LOCALAPPDATA%\Winston` on your PC:
+
+- **Accounts:** the servers you've signed in to and an access token for each. Tokens are encrypted with Windows' Data Protection API (DPAPI), so only your Windows user account can read them.
+- **Settings:** your preferences, such as theme, columns and keyboard shortcuts.
+- **Drafts:** posts you closed without posting, including their attachments and descriptions, until you post or discard them.
+- **Web panel data:** when you open links inside Winston, Microsoft Edge WebView2 keeps its usual browsing data (such as cookies and cache) in a folder of its own here.
+
+Uninstalling Winston leaves this folder in place so your accounts survive a reinstall. Delete the folder to remove everything.
+
+## Who Winston talks to
+
+- **Your Mastodon servers.** Everything you see and do in Winston, such as reading feeds, posting, uploading media, translating posts and receiving notifications, goes directly between your PC and the servers you sign in to. Those servers' own privacy policies apply to what you share with them.
+- **Other Mastodon servers, when you ask.** If your server is too small for trends of its own, you can choose to show another server's trends (mastodon.social unless you pick another). Winston then reads that server's public trends.
+- **Websites you open.** Links you open in Winston's web panel load directly from those websites, just like in a browser. Ctrl+click opens them in your own browser instead.
+- **Images and media.** Pictures, videos and link previews in posts load from the servers that host them.
+
+Winston doesn't send any of this to StackWerk.
+
+## Features that stay on your PC
+
+- **Text recognition** ("Use text in the image" and "Text in image") uses the text recognition built into Windows. Images are read on your PC and aren't uploaded anywhere for it.
+- **Catch up** picks out the posts you missed on your PC, from the feed your server sends.
+- **Notifications** are shown with Windows' own notifications.
+
+## Signing in
+
+Winston signs in with your server's standard OAuth flow: it opens your browser, you approve Winston on your server's own page, and the server gives Winston an access token. Winston never sees your password.
+
+## Changes
+
+If Winston starts handling data differently, this page will be updated first, with a new date at the top.
+
+## Questions
+
+Ask on (link: https://github.com/JamesNMartin/Winston/issues text: Winston's GitHub page).
+
+----
+
+Description: How Winston, StackWerk's Mastodon client for Windows, handles your data: no analytics or tracking, and everything kept on your PC.
+
+----
+
+Uuid: ZbeOBRxyAUUs2Sxq

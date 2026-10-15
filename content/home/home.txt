@@ -1,0 +1,63 @@
+Title: Home
+
+----
+
+Eyebrow: Independent software
+
+----
+
+Headline: Native apps, built with care.
+
+----
+
+Intro: StackWerk is a small software workshop making focused apps that feel at home on your device, keep your data where it belongs, and get better with every release.
+
+----
+
+Spotlight:
+
+- page://qrGLjP5FDfG96JG9
+
+----
+
+Appsheadline: The apps
+
+----
+
+Principlesheadline: How the apps are made
+
+----
+
+Principles:
+
+- 
+  icon: monitor
+  title: Native first
+  text: >
+    Each app is built with its platform's own
+    toolkit, so it looks, feels and behaves like
+    it belongs there. Winston is WinUI 3 through
+    and through.
+- 
+  icon: lock-keyhole
+  title: Your data stays yours
+  text: >
+    No accounts with us, no analytics, no ads.
+    What you do in an app stays between you, your
+    device and the services you choose.
+- 
+  icon: package
+  title: Shipped often, in the open
+  text: >
+    Every change is built and tested
+    automatically and released as soon as it
+    passes. The source is on GitHub for anyone to
+    read.
+
+----
+
+Description: 
+
+----
+
+Uuid: s54szPR1Qf5eAne7

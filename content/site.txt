@@ -1,0 +1,21 @@
+Title: StackWerk
+
+----
+
+Description: StackWerk makes native apps that feel at home on your device, starting with Winston, a Windows 11 client for Mastodon.
+
+----
+
+Email: 
+
+----
+
+Owner: James Martin
+
+----
+
+Links:
+
+- 
+  label: GitHub
+  url: https://github.com/JamesNMartin

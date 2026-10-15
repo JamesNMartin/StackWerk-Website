@@ -1,0 +1,17 @@
+Template: screenshot
+
+----
+
+Alt: Home, Notifications and This server feeds side by side as columns
+
+----
+
+Caption: Columns: several feeds side by side, in the order you choose
+
+----
+
+Sort: 2
+
+----
+
+Uuid: guqVGREddHxV26oM

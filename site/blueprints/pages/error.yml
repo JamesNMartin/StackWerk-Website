@@ -1,0 +1,18 @@
+title: Error page
+icon: alert
+
+options:
+  changeSlug: false
+  changeStatus: false
+  changeTemplate: false
+  delete: false
+  duplicate: false
+
+fields:
+  headline:
+    label: Headline
+    type: text
+  text:
+    label: Text
+    type: textarea
+    size: small

@@ -1,0 +1,42 @@
+Title: Privacy
+
+----
+
+Updated: 2026-10-15
+
+----
+
+Intro: This website doesn't track you. Here's what happens when you visit it.
+
+----
+
+Text:
+
+## This website
+
+- **No cookies for visitors.** The site doesn't set cookies when you browse it. (Editors who sign in to manage the site get a session cookie.)
+- **No analytics, ads or trackers.** There are no third-party scripts, embeds or tracking pixels.
+- **Fonts and images are served from this site,** so loading a page doesn't contact anyone else.
+- **Server logs.** Like any web server, the one hosting stackwerk.co records requests, including your IP address, browser and the page you asked for, to keep the site running and secure.
+
+## Downloads
+
+Download links lead to GitHub, where the app files are hosted. When you download an app, (link: https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement text: GitHub's privacy statement) applies. To show the latest version, this website asks GitHub about new releases on its own, so your browser doesn't contact GitHub until you click a download.
+
+## The apps
+
+Each app has its own privacy policy:
+
+- (link: apps/winston/privacy text: Winston)
+
+## Questions
+
+Ask on (link: https://github.com/JamesNMartin text: GitHub).
+
+----
+
+Description: How stackwerk.co handles your data: no cookies for visitors, no analytics and no trackers.
+
+----
+
+Uuid: pXbZLOiisDTIsokz

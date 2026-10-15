@@ -1,0 +1,24 @@
+{
+  "name": "stackwerk/website",
+  "description": "stackwerk.co: the StackWerk website, built with Kirby",
+  "type": "project",
+  "homepage": "https://stackwerk.co",
+  "license": "proprietary",
+  "require": {
+    "php": "~8.2.0 || ~8.3.0 || ~8.4.0 || ~8.5.0",
+    "getkirby/cms": "^5.6"
+  },
+  "config": {
+    "allow-plugins": {
+      "getkirby/composer-installer": true
+    },
+    "optimize-autoloader": true
+  },
+  "scripts": {
+    "start": [
+      "Composer\\Config::disableProcessTimeout",
+      "@php -S localhost:8000 kirby/router.php"
+    ],
+    "test": "bash scripts/smoke-test.sh"
+  }
+}

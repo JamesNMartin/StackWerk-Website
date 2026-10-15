@@ -1,0 +1,9 @@
+title: App icon
+
+accept:
+  mime: image/png, image/svg+xml, image/webp
+
+fields:
+  alt:
+    label: Alternative text
+    type: text

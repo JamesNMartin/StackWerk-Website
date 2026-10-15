@@ -1,0 +1,17 @@
+Template: screenshot
+
+----
+
+Alt: Winston's Home feed in the dark theme
+
+----
+
+Caption: Home, in the dark theme
+
+----
+
+Sort: 6
+
+----
+
+Uuid: 7tm86WrKbtGV0xzd

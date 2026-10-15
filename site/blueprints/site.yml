@@ -1,0 +1,62 @@
+title: StackWerk
+
+tabs:
+  pages:
+    label: Pages
+    icon: page
+    columns:
+      main:
+        width: 2/3
+        sections:
+          pages:
+            label: Pages
+            type: pages
+            create: default
+      sidebar:
+        width: 1/3
+        sections:
+          apps:
+            label: Apps
+            type: pages
+            parent: site.find("apps")
+            template: app
+            image:
+              query: page.appIcon
+              back: transparent
+              cover: false
+
+  settings:
+    label: Settings
+    icon: settings
+    fields:
+      description:
+        label: Site description
+        type: textarea
+        buttons: false
+        maxlength: 200
+        help: Used by search engines and link previews when a page has no description of its own.
+      email:
+        label: Contact email
+        type: email
+        width: 1/2
+        help: Shown in the footer and on the About page. Leave empty to hide it.
+      owner:
+        label: Run by
+        type: text
+        width: 1/2
+        help: The person or company named in the footer's copyright line.
+      links:
+        label: Elsewhere
+        type: structure
+        help: Links in the footer, such as GitHub or Mastodon. Mastodon links get rel="me" for profile verification.
+        fields:
+          label:
+            label: Label
+            type: text
+            width: 1/3
+            required: true
+          url:
+            label: URL
+            type: url
+            width: 2/3
+            required: true

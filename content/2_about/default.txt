@@ -1,0 +1,35 @@
+Title: About
+
+----
+
+Intro: StackWerk is a one-person software workshop run by James Martin. It's where I publish the apps I make.
+
+----
+
+Text:
+
+## Why "StackWerk"
+
+*Werk* is German for work, and for a works: the place where things get made. StackWerk is that place for my apps. Each one starts as something I wanted to use myself, and gets built properly, with the tools its platform was designed for.
+
+## What I make
+
+The first app is (link: apps/winston text: Winston), a native Windows 11 client for Mastodon. It's built with WinUI 3 and .NET, uses the Fluent design of Windows 11, and keeps your accounts on your PC. More apps are on the bench.
+
+## How I work
+
+- **Native first.** Apps use their platform's own toolkit, so they fit in with everything else on your device.
+- **No tracking.** There's no StackWerk account, no analytics and no ads in the apps.
+- **Small, frequent releases.** Every change is built and tested automatically, and released when it passes.
+
+## Get in touch
+
+Found a bug or have an idea? Open an issue on the app's GitHub page. For Winston, that's (link: https://github.com/JamesNMartin/Winston/issues text: github.com/JamesNMartin/Winston).
+
+----
+
+Description: StackWerk is a one-person software workshop run by James Martin, and the home of Winston, a Windows 11 client for Mastodon.
+
+----
+
+Uuid: wclCHP4Y6ZPF2WHa

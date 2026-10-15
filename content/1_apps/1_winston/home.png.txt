@@ -1,0 +1,17 @@
+Template: screenshot
+
+----
+
+Alt: Winston's Home feed in the light theme, with the navigation bar on the left and the Catch up and Columns buttons above the posts
+
+----
+
+Caption: Home, in the light theme
+
+----
+
+Sort: 1
+
+----
+
+Uuid: HgnNtx2SVjpOuHjq

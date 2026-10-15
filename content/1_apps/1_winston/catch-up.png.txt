@@ -1,0 +1,17 @@
+Template: screenshot
+
+----
+
+Alt: The Catch up page, listing replies and mentions since the last catch-up, with an I'm caught up button
+
+----
+
+Caption: Catch up: what you missed, picked out on your PC
+
+----
+
+Sort: 3
+
+----
+
+Uuid: NtLFfMm7X9Pm0f7Z

@@ -1,0 +1,342 @@
+Title: Winston
+
+----
+
+Eyebrow: Mastodon for Windows
+
+----
+
+Availability: available
+
+----
+
+Tagline: A native Windows 11 client for Mastodon.
+
+----
+
+Summary: Live feeds, columns, a Catch up that finds what you missed, and a new post from anywhere with one shortcut. Built with WinUI 3 and .NET 10, so it looks and works like the rest of Windows 11.
+
+----
+
+Platform: Windows 10 & 11
+
+----
+
+Price: Free
+
+----
+
+Color: #5a43d6
+
+----
+
+Category: SocialNetworkingApplication
+
+----
+
+Hero:
+
+- file://HgnNtx2SVjpOuHjq
+
+----
+
+Herodark:
+
+- file://7tm86WrKbtGV0xzd
+
+----
+
+Github: JamesNMartin/Winston
+
+----
+
+Downloadbutton: Download for Windows
+
+----
+
+Downloadnote: Installing a newer version updates Winston in place and keeps your accounts and settings.
+
+----
+
+Downloads:
+
+- 
+  label: 64-bit (x64)
+  text: Most Windows PCs
+  file: Winston-Setup-*-x64.exe
+  kind: installer
+  primary: true
+- 
+  label: ARM64
+  text: Snapdragon and other ARM PCs
+  file: Winston-Setup-*-arm64.exe
+  kind: installer
+  primary: false
+- 
+  label: 32-bit (x86)
+  text: Older PCs with 32-bit Windows
+  file: Winston-Setup-*-x86.exe
+  kind: installer
+  primary: false
+- 
+  label: x64 zip
+  text: Portable, runs from any folder
+  file: Winston-*-x64-portable.zip
+  kind: portable
+  primary: false
+- 
+  label: ARM64 zip
+  text: Portable, runs from any folder
+  file: Winston-*-arm64-portable.zip
+  kind: portable
+  primary: false
+- 
+  label: x86 zip
+  text: Portable, runs from any folder
+  file: Winston-*-x86-portable.zip
+  kind: portable
+  primary: false
+
+----
+
+Install:
+
+- 
+  title: Download the setup for your PC.
+  text: >
+    Most PCs need the 64-bit (x64) version.
+    Snapdragon and other ARM PCs need ARM64.
+- 
+  title: Run it.
+  text: >
+    Winston installs just for you, with no admin
+    rights needed, and adds itself to the Start
+    menu.
+- 
+  title: If SmartScreen stops it, choose More info, then Run anyway.
+  text: >
+    Winston isn't code-signed yet, so Windows
+    may not recognise it the first time.
+- 
+  title: Sign in with your server.
+  text: >
+    Enter your server's address and approve
+    Winston in your browser. You can also paste
+    an access token from your server's
+    Development settings.
+
+----
+
+Requirements:
+
+- 
+  label: Windows
+  value: Windows 10 version 1809 or later, or Windows 11
+- 
+  label: Processor
+  value: x64, ARM64 or x86
+- 
+  label: Account
+  value: An account on a Mastodon server
+- 
+  label: Price
+  value: Free
+
+----
+
+Featuresheadline: Everything Mastodon, made for Windows
+
+----
+
+Featuresintro: Winston covers the whole of Mastodon, from your home feed to moderation, and adds a few things of its own.
+
+----
+
+Features:
+
+- 
+  icon: radio
+  title: Feeds that keep up
+  text: >
+    Home, Local, Remote and Federated feeds
+    stream live. New posts arrive above you
+    without moving what you're reading, and a
+    pill counts down as you scroll up to them.
+- 
+  icon: history
+  title: Catch up
+  text: >
+    What you missed since you last looked, picked
+    out on your PC: the most talked-about posts,
+    boosts from several people folded into one
+    card, replies and mentions, the busiest
+    hashtags, and quiet voices who rarely post.
+- 
+  icon: columns-3
+  title: Columns and tabs
+  text: >
+    Put Home, Notifications, lists, hashtags,
+    people, bookmarks and trends side by side.
+    Drag to reorder, pick from three widths, and
+    Winston remembers the layout.
+- 
+  icon: picture-in-picture-2
+  title: Pop out any feed
+  text: >
+    Follow an event or a conversation in a small
+    window that stays on top of your other apps
+    while you work.
+- 
+  icon: keyboard
+  title: A new post from anywhere
+  text: >
+    Press Ctrl+Alt+Shift+M wherever you are and a
+    new post opens over what you're doing.
+    Winston can wait in the notification area so
+    the shortcut always works.
+- 
+  icon: scan-text
+  title: Help with alt text
+  text: >
+    "Use text in the image" reads a screenshot's
+    text with the text recognition built into
+    Windows, on your PC and offline, and puts it
+    in the description for you to edit.
+- 
+  icon: notebook-pen
+  title: Drafts that stay
+  text: >
+    Close compose without posting and Winston
+    keeps what you wrote: content warning, poll,
+    reply, and attachments with their
+    descriptions.
+- 
+  icon: book-open-text
+  title: Links beside your feed
+  text: >
+    Web links open in a panel next to your
+    timeline, with a reader view that shows just
+    the article in Winston's theme and text size.
+- 
+  icon: heading
+  title: Markdown, shown as formatting
+  text: >
+    Bold, italics, code, lists, quotes and links
+    typed as Markdown show as formatting. On
+    servers that accept it, post in Markdown or
+    HTML.
+- 
+  icon: quote
+  title: Quotes, polls and threads
+  text: >
+    Quote posts, polls you can vote in and
+    refresh, edit history, translations, and
+    threads colour-coded by depth.
+- 
+  icon: chart-column
+  title: Statistics
+  text: >
+    A weekly activity chart covering eight weeks
+    of replies, mentions, quotes, boosts,
+    favorites, posts and follows, plus your
+    recent posts with their counts.
+- 
+  icon: users
+  title: All your accounts
+  text: >
+    Sign in to as many accounts as you like, on
+    any servers, and switch between them quickly.
+    Staff get reports, approvals and federation
+    tools too.
+
+----
+
+Nativeheadline: At home on Windows 11
+
+----
+
+Nativetext: Winston uses the current Fluent controls and the parts of Windows you already know.
+
+----
+
+Nativeitems: Mica and Acrylic backdrops, Light and dark themes, Windows' accent colour or your own, Toast notifications, The Windows share sheet, An icon in the notification area, Text recognition built into Windows, Sign-ins protected by Windows (DPAPI), Sharp on every monitor (per-monitor DPI), Follows Windows' animation setting, Keyboard shortcuts throughout
+
+----
+
+Privacyheadline: Between you and your server
+
+----
+
+Privacytext: Winston talks directly to the Mastodon servers you sign in to. There's no StackWerk account, no analytics and no tracking. Your settings, accounts and drafts stay on your PC, and sign-in tokens are encrypted by Windows for your user alone.
+
+----
+
+Galleryheadline: A closer look
+
+----
+
+Galleryintro: Screenshots from Winston's automated tests, with made-up accounts on a test server.
+
+----
+
+Faq:
+
+- 
+  question: How much does Winston cost?
+  answer: Nothing. Winston is a free download.
+- 
+  question: Which download do I need?
+  answer: >
+    Most Windows PCs need the **64-bit (x64)**
+    setup. PCs with a Snapdragon or other ARM
+    processor need **ARM64**, and 32-bit Windows
+    needs **x86**. Not sure? Open Settings →
+    System → About and look at "System type".
+- 
+  question: Why does Windows warn me when I run the setup?
+  answer: >
+    Winston isn't code-signed yet, so Windows
+    SmartScreen doesn't recognise it. Choose
+    **More info**, then **Run anyway**.
+- 
+  question: How do I update Winston?
+  answer: >
+    Download the latest setup from this page and
+    run it. It updates Winston in place and keeps
+    your accounts and settings.
+- 
+  question: Can I use Winston without installing it?
+  answer: >
+    Yes. Each release has portable zips that run
+    from any folder. Unzip one and start
+    `Winston.exe`.
+- 
+  question: Does it work with my server?
+  answer: >
+    Winston works with any Mastodon server. Some
+    features need a recent version: grouped
+    notifications need Mastodon 4.3, quote posts
+    4.5 and collections 4.6. Posting in Markdown
+    or HTML works on servers that accept it, such
+    as glitch-soc, GoToSocial and Akkoma.
+- 
+  question: How do I uninstall it?
+  answer: >
+    Open Settings → Apps, find Winston in the
+    list and choose Uninstall. Your settings
+    and accounts are kept in
+    `%LOCALAPPDATA%\Winston` in case you come
+    back; delete that folder to remove them too.
+- 
+  question: Where do I report a bug or suggest a feature?
+  answer: >
+    Open an issue on
+    (link: https://github.com/JamesNMartin/Winston/issues text: Winston's GitHub page).
+
+----
+
+Description: Winston is a free, native Windows 11 client for Mastodon with live feeds, columns, Catch up, drafts, a reader view and a new post from anywhere.
+
+----
+
+Uuid: qrGLjP5FDfG96JG9

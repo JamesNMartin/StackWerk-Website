@@ -1,0 +1,17 @@
+Template: screenshot
+
+----
+
+Alt: The New post window with Markdown typed in the editor and a formatted preview underneath
+
+----
+
+Caption: Compose with a live preview of your formatting
+
+----
+
+Sort: 4
+
+----
+
+Uuid: ES5qPMfOhlonw8fK

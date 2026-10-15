@@ -1,0 +1,41 @@
+# One of the line icons in assets/icons (Lucide, ISC licence).
+label: Icon
+type: select
+width: 1/3
+options:
+  archive: Archive
+  bell: Bell
+  book-open-text: Book
+  chart-column: Chart
+  check: Check
+  code-xml: Code
+  columns-3: Columns
+  cpu: Processor
+  download: Download
+  feather: Feather
+  hammer: Hammer
+  hard-drive: Drive
+  heading: Heading
+  history: History
+  image: Image
+  info: Info
+  keyboard: Keyboard
+  languages: Languages
+  layers: Layers
+  lock-keyhole: Lock
+  message-square-text: Message
+  monitor: Monitor
+  moon: Moon
+  notebook-pen: Notebook
+  package: Package
+  picture-in-picture-2: Pop-out window
+  quote: Quote
+  radio: Live
+  scan-text: Scan text
+  shield-check: Shield
+  sliders-horizontal: Sliders
+  sparkles: Sparkles
+  square-pen: Compose
+  sun: Sun
+  users: People
+  zap: Lightning

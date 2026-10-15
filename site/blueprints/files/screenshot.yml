@@ -1,0 +1,14 @@
+title: Screenshot
+
+accept:
+  mime: image/png, image/jpeg, image/webp
+
+fields:
+  alt:
+    label: Alternative text
+    type: text
+    required: true
+    help: Describes the screenshot for people who can't see it.
+  caption:
+    label: Caption
+    type: text

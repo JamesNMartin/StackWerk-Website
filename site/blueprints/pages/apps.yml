@@ -1,0 +1,35 @@
+title: Apps
+icon: apps
+
+options:
+  changeTemplate: false
+  delete: false
+
+columns:
+  main:
+    width: 2/3
+    fields:
+      headline:
+        label: Headline
+        type: text
+      intro:
+        label: Intro
+        type: textarea
+        buttons: false
+        size: small
+      description:
+        label: Description for search engines
+        type: textarea
+        buttons: false
+        maxlength: 200
+  sidebar:
+    width: 1/3
+    sections:
+      apps:
+        label: Apps
+        type: pages
+        template: app
+        image:
+          query: page.appIcon
+          back: transparent
+          cover: false

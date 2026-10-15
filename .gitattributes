@@ -1,0 +1,6 @@
+# Left out of `git archive`, and so of the deploy package CI builds
+.gitattributes export-ignore
+.github export-ignore
+.editorconfig export-ignore
+README.md export-ignore
+scripts export-ignore

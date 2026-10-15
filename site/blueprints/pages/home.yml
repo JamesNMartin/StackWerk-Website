@@ -1,0 +1,61 @@
+title: Home
+icon: home
+
+options:
+  changeSlug: false
+  changeStatus: false
+  changeTemplate: false
+  delete: false
+  duplicate: false
+
+tabs:
+  content:
+    label: Content
+    icon: text
+    fields:
+      eyebrow:
+        label: Eyebrow
+        type: text
+        width: 1/3
+        help: The small line above the headline.
+      headline:
+        label: Headline
+        type: text
+        width: 2/3
+        required: true
+      intro:
+        label: Intro
+        type: textarea
+        buttons: false
+        size: small
+      spotlight:
+        label: Spotlight app
+        type: pages
+        max: 1
+        query: site.find("apps").children.listed.filterBy("intendedTemplate", "app")
+        help: Shown large under the intro, with its screenshot.
+      appsHeadline:
+        label: Apps headline
+        type: text
+        width: 1/2
+      principlesHeadline:
+        label: Principles headline
+        type: text
+        width: 1/2
+      principles:
+        label: Principles
+        type: structure
+        fields:
+          icon:
+            extends: fields/icon
+          title:
+            label: Title
+            type: text
+            width: 2/3
+            required: true
+          text:
+            label: Text
+            type: textarea
+            buttons: false
+            size: small
+  seo: tabs/seo
