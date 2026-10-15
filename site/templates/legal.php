@@ -2,6 +2,7 @@
 /**
  * A policy page, e.g. a privacy policy. Under an app it is that app's policy.
  *
+ * @var Kirby\Cms\Site $site
  * @var Kirby\Cms\Page $page
  */
 $app = $page->parent()?->intendedTemplate()->name() === 'app' ? $page->parent() : null;
@@ -26,6 +27,10 @@ $app = $page->parent()?->intendedTemplate()->name() === 'app' ? $page->parent() 
   <div class="section section--tight">
     <div class="container container--text prose">
       <?= $page->text()->kt() ?>
+      <?php if ($site->email()->isNotEmpty()): ?>
+      <h2>Questions</h2>
+      <p>Email <?= Html::email($site->email()->value()) ?>.</p>
+      <?php endif ?>
     </div>
   </div>
 </article>

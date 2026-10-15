@@ -46,77 +46,24 @@ Herodark:
 
 ----
 
-Github: JamesNMartin/Winston
+Storeid: 
 
 ----
 
-Downloadbutton: Download for Windows
-
-----
-
-Downloadnote: Installing a newer version updates Winston in place and keeps your accounts and settings.
-
-----
-
-Downloads:
-
-- 
-  label: 64-bit (x64)
-  text: Most Windows PCs
-  file: Winston-Setup-*-x64.exe
-  kind: installer
-  primary: true
-- 
-  label: ARM64
-  text: Snapdragon and other ARM PCs
-  file: Winston-Setup-*-arm64.exe
-  kind: installer
-  primary: false
-- 
-  label: 32-bit (x86)
-  text: Older PCs with 32-bit Windows
-  file: Winston-Setup-*-x86.exe
-  kind: installer
-  primary: false
-- 
-  label: x64 zip
-  text: Portable, runs from any folder
-  file: Winston-*-x64-portable.zip
-  kind: portable
-  primary: false
-- 
-  label: ARM64 zip
-  text: Portable, runs from any folder
-  file: Winston-*-arm64-portable.zip
-  kind: portable
-  primary: false
-- 
-  label: x86 zip
-  text: Portable, runs from any folder
-  file: Winston-*-x86-portable.zip
-  kind: portable
-  primary: false
+Storenote: Updates install automatically.
 
 ----
 
 Install:
 
 - 
-  title: Download the setup for your PC.
+  title: Get Winston from the Microsoft Store.
   text: >
-    Most PCs need the 64-bit (x64) version.
-    Snapdragon and other ARM PCs need ARM64.
+    The Store installs the right version for
+    your PC and keeps it up to date.
 - 
-  title: Run it.
-  text: >
-    Winston installs just for you, with no admin
-    rights needed, and adds itself to the Start
-    menu.
-- 
-  title: If SmartScreen stops it, choose More info, then Run anyway.
-  text: >
-    Winston isn't code-signed yet, so Windows
-    may not recognise it the first time.
+  title: Open it from the Start menu.
+  text: ""
 - 
   title: Sign in with your server.
   text: >
@@ -283,33 +230,13 @@ Faq:
 
 - 
   question: How much does Winston cost?
-  answer: Nothing. Winston is a free download.
-- 
-  question: Which download do I need?
-  answer: >
-    Most Windows PCs need the **64-bit (x64)**
-    setup. PCs with a Snapdragon or other ARM
-    processor need **ARM64**, and 32-bit Windows
-    needs **x86**. Not sure? Open Settings →
-    System → About and look at "System type".
-- 
-  question: Why does Windows warn me when I run the setup?
-  answer: >
-    Winston isn't code-signed yet, so Windows
-    SmartScreen doesn't recognise it. Choose
-    **More info**, then **Run anyway**.
+  answer: Nothing. Winston is free.
 - 
   question: How do I update Winston?
   answer: >
-    Download the latest setup from this page and
-    run it. It updates Winston in place and keeps
-    your accounts and settings.
-- 
-  question: Can I use Winston without installing it?
-  answer: >
-    Yes. Each release has portable zips that run
-    from any folder. Unzip one and start
-    `Winston.exe`.
+    The Microsoft Store updates it for you. To
+    check straight away, open **Library** in the
+    Microsoft Store and choose **Get updates**.
 - 
   question: Does it work with my server?
   answer: >
@@ -320,18 +247,24 @@ Faq:
     or HTML works on servers that accept it, such
     as glitch-soc, GoToSocial and Akkoma.
 - 
+  question: Can I use more than one account?
+  answer: >
+    Yes. Sign in to as many accounts as you like,
+    on any servers, and switch between them from
+    the account menu.
+- 
+  question: How do I remove an account from Winston?
+  answer: >
+    Choose **Sign out** for it in the account
+    menu or in Settings. Winston asks your server
+    to revoke its access, and removes the account
+    from your PC.
+- 
   question: How do I uninstall it?
   answer: >
-    Open Settings → Apps, find Winston in the
-    list and choose Uninstall. Your settings
-    and accounts are kept in
-    `%LOCALAPPDATA%\Winston` in case you come
-    back; delete that folder to remove them too.
-- 
-  question: Where do I report a bug or suggest a feature?
-  answer: >
-    Open an issue on
-    (link: https://github.com/JamesNMartin/Winston/issues text: Winston's GitHub page).
+    Right-click Winston in the Start menu and
+    choose **Uninstall**, or remove it in
+    Settings → Apps.
 
 ----
 

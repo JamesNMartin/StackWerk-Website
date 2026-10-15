@@ -47,12 +47,12 @@ Principles:
     device and the services you choose.
 - 
   icon: package
-  title: Shipped often, in the open
+  title: Shipped often
   text: >
     Every change is built and tested
-    automatically and released as soon as it
-    passes. The source is on GitHub for anyone to
-    read.
+    automatically before it ships, and updates
+    reach you on their own through the Microsoft
+    Store.
 
 ----
 

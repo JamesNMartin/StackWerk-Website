@@ -20,11 +20,7 @@ The first app is (link: apps/winston text: Winston), a native Windows 11 client 
 
 - **Native first.** Apps use their platform's own toolkit, so they fit in with everything else on your device.
 - **No tracking.** There's no StackWerk account, no analytics and no ads in the apps.
-- **Small, frequent releases.** Every change is built and tested automatically, and released when it passes.
-
-## Get in touch
-
-Found a bug or have an idea? Open an issue on the app's GitHub page. For Winston, that's (link: https://github.com/JamesNMartin/Winston/issues text: github.com/JamesNMartin/Winston).
+- **Small, frequent releases.** Every change is built and tested automatically before it ships, and updates arrive through the Microsoft Store.
 
 ----
 

@@ -4,18 +4,8 @@ use Kirby\Cms\App as Kirby;
 use Kirby\Cms\File;
 use Kirby\Cms\Response;
 use Kirby\Toolkit\Xml;
-use StackWerk\Releases;
-
-load([
-    'StackWerk\\Releases' => 'src/Releases.php',
-], __DIR__);
 
 Kirby::plugin('stackwerk/website', [
-    'options' => [
-        'cache'        => true,
-        'releases.ttl' => 60,
-    ],
-
     'pageMethods' => [
         /** The app's icon: its image with the `icon` file template. */
         'appIcon' => function (): ?File {
@@ -47,13 +37,23 @@ Kirby::plugin('stackwerk/website', [
 
             return '--app: ' . $hex . '; --app-ink: ' . ($luminance > 0.18 ? '#141311' : '#ffffff') . ';';
         },
-        /** The newest GitHub release of the repository in the page's `github` field. */
-        'latestRelease' => function (): ?array {
-            return Releases::latest(trim((string)$this->github()->value()));
+        /**
+         * The app's Microsoft Store listing, from the Store ID in its `storeId` field,
+         * or null without one. `$direct` links the way Microsoft's badge does: straight
+         * to installing the app rather than to the full listing.
+         */
+        'storeUrl' => function (bool $direct = true): ?string {
+            $id = trim((string)$this->storeId()->value());
+
+            if (preg_match('/^[0-9A-Za-z]{12,14}$/', $id) !== 1) {
+                return null;
+            }
+
+            return 'https://apps.microsoft.com/detail/' . strtoupper($id) . ($direct ? '?mode=direct' : '');
         },
-        /** The page's `downloads`, linked to the files of its latest release. */
-        'downloadLinks' => function (): array {
-            return Releases::downloads($this);
+        /** Whether the app isn't out yet: marked "coming soon", or without a Store listing. */
+        'isComingSoon' => function (): bool {
+            return $this->availability()->value() === 'soon' || $this->storeUrl() === null;
         },
         /** The SEO description: its own, else a summary or intro, else the site's. */
         'metaDescription' => function (): string {

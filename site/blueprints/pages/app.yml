@@ -20,6 +20,7 @@ tabs:
             width: 1/2
             default: available
             required: true
+            help: The app shows as coming soon until its Store ID is filled in, whatever this says.
             options:
               available: Available
               beta: Beta
@@ -99,65 +100,22 @@ tabs:
             template: legal
             help: e.g. the app's privacy policy, linked from the app's page.
 
-  downloads:
-    label: Downloads
+  store:
+    label: Microsoft Store
     icon: download
     fields:
-      github:
-        label: GitHub repository
+      storeId:
+        label: Store ID
         type: text
         width: 1/2
-        placeholder: owner/repo
-        pattern: '[A-Za-z0-9_.\-]+\/[A-Za-z0-9_.\-]+'
-        help: Download buttons link to the files of this repository's latest release.
-      downloadButton:
-        label: Download button text
+        placeholder: 9XXXXXXXXXXX
+        pattern: '[0-9A-Za-z]{12,14}'
+        help: From Partner Center (Product identity). Until it's filled in, the page says the app is coming soon to the Microsoft Store; then the "Download from the Microsoft Store" badge appears.
+      storeNote:
+        label: Note
         type: text
         width: 1/2
-        placeholder: Download
-        help: e.g. "Download for Windows"
-      downloadNote:
-        label: Download note
-        type: text
-        help: A short line under the download buttons.
-      downloads:
-        label: Downloads
-        type: structure
-        help: Each download links to the latest release's file that matches its pattern (* matches anything, like the version number). Without a match it links to the release page.
-        columns:
-          label: true
-          file: true
-          kind: true
-          primary: true
-        fields:
-          label:
-            label: Label
-            type: text
-            width: 1/3
-            required: true
-          text:
-            label: Who it's for
-            type: text
-            width: 2/3
-          file:
-            label: File pattern
-            type: text
-            width: 1/3
-            required: true
-            placeholder: App-Setup-*-x64.exe
-          kind:
-            label: Kind
-            type: select
-            width: 1/3
-            default: installer
-            options:
-              installer: Installer
-              portable: Portable
-          primary:
-            label: Main button
-            type: toggle
-            width: 1/3
-            help: Used for the big download button.
+        help: A short line under the Store badge, e.g. about updates.
       install:
         label: Install steps
         type: structure

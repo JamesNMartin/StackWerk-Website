@@ -8,16 +8,13 @@
  * @var Kirby\Cms\File|null  $hero
  * @var Kirby\Cms\File|null  $heroDark
  * @var Kirby\Cms\Files      $screenshots
- * @var array|null           $release
- * @var array                $installers
- * @var array                $portables
- * @var array|null           $primary
- * @var string|null          $source
+ * @var bool                 $comingSoon
+ * @var string|null          $storeUrl
  * @var Kirby\Cms\Page|null  $policy
  */
-$status    = $page->availability()->value();
-$hasFaq    = $page->faq()->isNotEmpty();
-$published = $release['published'] ?? null;
+$hasFaq = $page->faq()->isNotEmpty();
+$hasGet = $page->install()->isNotEmpty() || $page->requirements()->isNotEmpty() || $comingSoon === false;
+$meta   = array_filter([$page->price()->value(), $page->platform()->value()]);
 
 $schema = array_filter([
     '@context'            => 'https://schema.org',
@@ -28,8 +25,7 @@ $schema = array_filter([
     'image'               => $icon?->url(),
     'applicationCategory' => $page->category()->or('UtilitiesApplication')->value(),
     'operatingSystem'     => $page->platform()->value(),
-    'softwareVersion'     => $release['version'] ?? null,
-    'downloadUrl'         => $primary['url'] ?? null,
+    'downloadUrl'         => $comingSoon ? null : $page->storeUrl(false),
     'screenshot'          => array_map(fn ($file) => $file->url(), array_values(array_filter([$hero, $heroDark, ...$screenshots->values()]))) ?: null,
     'offers'              => strtolower($page->price()->value() ?? '') === 'free'
         ? ['@type' => 'Offer', 'price' => '0', 'priceCurrency' => 'USD']
@@ -56,35 +52,24 @@ $schema = array_filter([
         <?php endif ?>
         <h1 class="display app-hero__title">
           <?= $page->title()->html() ?>
-          <?php if ($status === 'beta'): ?><span class="badge">Beta</span><?php endif ?>
+          <?php if ($page->availability()->value() === 'beta'): ?><span class="badge">Beta</span><?php endif ?>
         </h1>
         <p class="app-hero__tagline"><?= $page->tagline()->html() ?></p>
         <?php if ($page->summary()->isNotEmpty()): ?>
         <p class="app-hero__summary"><?= $page->summary()->html() ?></p>
         <?php endif ?>
 
-        <?php if ($status === 'soon'): ?>
-        <p class="app-hero__meta"><span class="badge badge--large">Coming soon</span></p>
-        <?php elseif ($primary): ?>
         <div class="actions">
-          <a class="button button--app button--large" href="<?= esc($primary['url']) ?>">
-            <?php snippet('icon', ['name' => 'download']) ?>
-            <?= $page->downloadButton()->or('Download')->html() ?>
-          </a>
-          <?php if ($source): ?>
-          <a class="button button--ghost" href="<?= $source ?>">
-            <?php snippet('icon', ['name' => 'code-xml']) ?>
-            Source on GitHub
-          </a>
+          <?php if ($comingSoon): ?>
+          <p class="coming-soon"><?php snippet('icon', ['name' => 'sparkles']) ?> Coming soon to the Microsoft Store</p>
+          <?php else: ?>
+          <?php snippet('store-badge', ['url' => $storeUrl]) ?>
           <?php endif ?>
         </div>
+        <?php if ($meta || $hasGet): ?>
         <p class="app-hero__meta">
-          <?= esc(implode(' · ', array_filter([
-              isset($release['version']) ? 'Version ' . $release['version'] : null,
-              $page->price()->value(),
-              $primary['label'] . ($primary['size'] ? ', ' . $primary['size'] : ''),
-          ]))) ?>
-          · <a href="#download">Other downloads</a>
+          <?= esc(implode(' · ', $meta)) ?>
+          <?php if ($hasGet): ?><?= $meta ? ' · ' : '' ?><a href="#get">Requirements</a><?php endif ?>
         </p>
         <?php endif ?>
       </div>
@@ -106,11 +91,12 @@ $schema = array_filter([
       <ul class="app-nav__links">
         <?php if ($page->features()->isNotEmpty()): ?><li><a href="#features">Features</a></li><?php endif ?>
         <?php if ($screenshots->isNotEmpty()): ?><li><a href="#screenshots">Screenshots</a></li><?php endif ?>
+        <?php if ($hasGet): ?><li><a href="#get">Get <?= $page->title()->html() ?></a></li><?php endif ?>
         <?php if ($hasFaq): ?><li><a href="#faq">FAQ</a></li><?php endif ?>
         <?php if ($policy): ?><li><a href="<?= $policy->url() ?>">Privacy</a></li><?php endif ?>
       </ul>
-      <?php if ($primary): ?>
-      <a class="button button--app button--small" href="#download"><?php snippet('icon', ['name' => 'download']) ?> Download</a>
+      <?php if ($comingSoon === false): ?>
+      <a class="button button--app button--small" href="<?= esc($storeUrl) ?>"><?php snippet('icon', ['name' => 'download']) ?> Get <?= $page->title()->html() ?></a>
       <?php endif ?>
     </div>
   </nav>
@@ -185,52 +171,23 @@ $schema = array_filter([
   </section>
   <?php endif ?>
 
-  <?php if ($status !== 'soon' && ($installers || $portables)): ?>
-  <section class="section section--rule" id="download" aria-labelledby="download-title">
+  <?php if ($hasGet): ?>
+  <section class="section section--rule" id="get" aria-labelledby="get-title">
     <div class="container">
       <header class="section-header">
-        <h2 class="section-title" id="download-title">Download <?= $page->title()->html() ?></h2>
-        <p class="section-intro">
-          <?php if ($release): ?>
-          Version <?= esc($release['version']) ?><?php if ($published): ?>, released <time datetime="<?= date('Y-m-d', $published) ?>"><?= date('F j, Y', $published) ?></time><?php endif ?>.
-          <a href="<?= esc($release['url']) ?>">Release notes</a>
-          <?php else: ?>
-          The latest version, from the releases page on GitHub.
-          <?php endif ?>
-        </p>
+        <h2 class="section-title" id="get-title">Get <?= $page->title()->html() ?></h2>
+        <?php if ($comingSoon): ?>
+        <p class="section-intro"><?= $page->title()->html() ?> is coming soon to the Microsoft Store. <?= $page->storeNote()->html() ?></p>
+        <?php endif ?>
       </header>
 
-      <?php if ($installers): ?>
-      <ul class="downloads">
-        <?php foreach ($installers as $download): ?>
-        <li class="download<?= $download['primary'] ? ' download--primary' : '' ?>">
-          <h3 class="download__label"><?= esc($download['label']) ?></h3>
-          <?php if ($download['text'] !== ''): ?>
-          <p class="download__text"><?= esc($download['text']) ?></p>
-          <?php endif ?>
-          <a class="button <?= $download['primary'] ? 'button--app' : 'button--ghost' ?>" href="<?= esc($download['url']) ?>">
-            <?php snippet('icon', ['name' => 'download']) ?>
-            Download<?= $download['size'] ? ' <span class="button__note">' . esc($download['size']) . '</span>' : '' ?>
-          </a>
-          <?php if ($download['file']): ?>
-          <p class="download__file"><?= esc($download['file']) ?></p>
-          <?php endif ?>
-        </li>
-        <?php endforeach ?>
-      </ul>
-      <?php endif ?>
-
-      <?php if ($portables): ?>
-      <p class="portables">
-        <span>No installer?</span>
-        <?php foreach ($portables as $download): ?>
-        <a href="<?= esc($download['url']) ?>"><?= esc($download['label']) ?><?= $download['size'] ? ' <span class="portables__size">' . esc($download['size']) . '</span>' : '' ?></a>
-        <?php endforeach ?>
-      </p>
-      <?php endif ?>
-
-      <?php if ($page->downloadNote()->isNotEmpty()): ?>
-      <p class="download-note"><?= $page->downloadNote()->html() ?></p>
+      <?php if ($comingSoon === false): ?>
+      <div class="store">
+        <?php snippet('store-badge', ['url' => $storeUrl]) ?>
+        <?php if ($page->storeNote()->isNotEmpty()): ?>
+        <p class="store__note"><?= $page->storeNote()->html() ?></p>
+        <?php endif ?>
+      </div>
       <?php endif ?>
 
       <div class="split split--install">
@@ -279,6 +236,9 @@ $schema = array_filter([
         </details>
         <?php endforeach ?>
       </div>
+      <?php if ($site->email()->isNotEmpty()): ?>
+      <p class="faq-contact">Something else? Email <?= Html::email($site->email()->value()) ?>.</p>
+      <?php endif ?>
     </div>
   </section>
   <?php endif ?>

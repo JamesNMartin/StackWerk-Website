@@ -48,7 +48,7 @@ tabs:
       links:
         label: Elsewhere
         type: structure
-        help: Links in the footer, such as GitHub or Mastodon. Mastodon links get rel="me" for profile verification.
+        help: Links in the footer, such as Mastodon or Bluesky. Mastodon links get rel="me" for profile verification.
         fields:
           label:
             label: Label

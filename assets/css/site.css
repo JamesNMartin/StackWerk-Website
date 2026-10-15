@@ -511,11 +511,6 @@ code {
   height: 1.15em;
 }
 
-.button__note {
-  font-weight: 400;
-  opacity: 0.8;
-}
-
 /* Sections ---------------------------------------------------------------- */
 
 .section {
@@ -1103,85 +1098,54 @@ code {
   color: var(--app-text);
 }
 
-/* App page: downloads ----------------------------------------------------- */
+/* App page: getting the app ---------------------------------------------- */
 
-.downloads {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.store-badge {
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 0;
+  transition: transform 0.15s;
 }
 
-.download {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1.5rem;
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  background: var(--surface);
+.store-badge:hover {
+  transform: translateY(-1px);
 }
 
-.download--primary {
-  border-color: var(--app-line);
+.store-badge img {
+  width: auto;
+  height: 52px;
+}
+
+.app-hero .store-badge img {
+  height: 60px;
+}
+
+.coming-soon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.25rem;
+  border: 1px solid var(--app-line);
+  border-radius: 10px;
   background: var(--app-tint);
+  color: var(--app-text);
+  font-weight: 600;
 }
 
-.download__label {
-  font-size: 1.25rem;
+.spotlight__soon {
+  margin-top: 1rem;
+  color: var(--app-text);
+  font-weight: 600;
 }
 
-.download__text {
-  margin-top: 0.25rem;
-  margin-bottom: 1.25rem;
-  color: var(--ink-2);
-}
-
-.download .button {
-  margin-top: auto;
-}
-
-.download__file {
-  margin-top: 0.75rem;
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  overflow-wrap: anywhere;
-}
-
-.portables {
+.store {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem 0.75rem;
-  margin-top: 1.5rem;
-  color: var(--muted);
-  font-size: 0.9375rem;
+  gap: 1rem 1.5rem;
 }
 
-.portables a {
-  padding: 0.35rem 0.8rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 999px;
-  color: var(--ink);
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.portables a:hover {
-  border-color: var(--ink-2);
-  background: var(--surface);
-}
-
-.portables__size {
-  color: var(--muted);
-  font-weight: 400;
-}
-
-.download-note {
-  margin-top: 1rem;
+.store__note {
   color: var(--muted);
   font-size: 0.9375rem;
 }
@@ -1315,6 +1279,16 @@ code {
 .faq .prose {
   padding-bottom: 1.5rem;
   color: var(--ink-2);
+}
+
+.faq-contact {
+  margin-top: 1.5rem;
+  color: var(--ink-2);
+}
+
+.faq-contact a {
+  color: var(--app-text);
+  font-weight: 500;
 }
 
 /* Prose (KirbyText) ------------------------------------------------------- */
@@ -1452,6 +1426,7 @@ code {
   }
 
   .button:hover,
+  .store-badge:hover,
   .app-card:hover,
   .app-card:hover .app-card__go,
   .link-arrow:hover .icon {

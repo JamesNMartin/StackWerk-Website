@@ -52,10 +52,13 @@ $others    = $spotlight ? $apps->not($spotlight) : $apps;
         <?php endif ?>
         <div class="actions">
           <a class="button button--app" href="<?= $spotlight->url() ?>">Meet <?= $spotlight->title()->html() ?> <?php snippet('icon', ['name' => 'arrow-right']) ?></a>
-          <?php if ($spotlight->availability()->value() !== 'soon' && $spotlight->downloads()->isNotEmpty()): ?>
-          <a class="button button--ghost" href="<?= $spotlight->url() ?>#download"><?php snippet('icon', ['name' => 'download']) ?> Download</a>
+          <?php if ($spotlight->isComingSoon() === false): ?>
+          <?php snippet('store-badge', ['url' => $spotlight->storeUrl()]) ?>
           <?php endif ?>
         </div>
+        <?php if ($spotlight->isComingSoon()): ?>
+        <p class="spotlight__soon">Coming soon to the Microsoft Store</p>
+        <?php endif ?>
       </div>
       <?php if ($hero): ?>
       <div class="spotlight__shot">

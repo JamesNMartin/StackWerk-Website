@@ -12,23 +12,26 @@ The first app is **Winston**, a native Windows 11 client for Mastodon, at
 | --- | --- | --- |
 | `/` | `home` | Headline, the spotlight app with its screenshot, the other apps, and "How the apps are made" |
 | `/apps` | `apps` | A card for every app |
-| `/apps/winston` | `app` | Winston's product page: hero with download button, features, screenshots, platform and privacy panels, downloads for every architecture, install steps, requirements and FAQ |
+| `/apps/winston` | `app` | Winston's product page: hero with the Microsoft Store badge, features, screenshots, platform and privacy panels, install steps, requirements and FAQ |
 | `/apps/winston/privacy` | `legal` | Winston's privacy policy |
 | `/about`, `/privacy` | `default`, `legal` | About StackWerk; the website's privacy page |
 | `/sitemap.xml`, `/robots.txt` | (plugin routes) | For search engines |
 
 Things worth knowing:
 
-- **Downloads stay current on their own.** The app page asks GitHub for the latest release of the repository in its
-  *GitHub repository* field and links each download straight to the matching file, with its size and the version
-  number. The answer is cached for an hour (`stackwerk.website.releases.ttl` in `site/config/config.php`). If GitHub
-  can't be reached, the last answer is used, and failing that the buttons link to the repository's latest release page.
+- **Apps come from the Microsoft Store.** An app page shows "Coming soon to the Microsoft Store" until its *Store ID*
+  is filled in; then Microsoft's "Download from the Microsoft Store" badge appears in the hero, the *Get* section, the
+  sticky bar and the home page, linking to the listing. The badge images are Microsoft's, saved in `assets/images/`
+  (dark badge on light pages, light badge on dark ones, as Microsoft asks).
 - **Each app has its own colour.** The *Accent colour* field colours that app's buttons, icons and highlights; text on
   it switches between white and black for contrast.
 - **Light and dark.** The site follows the visitor's system setting, and an app can have a dark-theme hero screenshot.
-- **No tracking.** No cookies for visitors, no analytics and no third-party requests: fonts and icons are served from
-  the site, and GitHub is asked about releases by the server, not the visitor's browser. `/privacy` says so, and
-  `scripts/smoke-test.sh` fails if a page starts setting a cookie.
+- **No tracking.** No cookies for visitors, no analytics and no third-party requests: fonts, icons and the Store badge
+  are served from the site. `/privacy` says so, and `scripts/smoke-test.sh` fails if a page starts setting a cookie.
+- **No GitHub links.** The apps are closed source, so the smoke test also fails if any page links to github.com.
+- **A contact email shows up everywhere once set.** Fill in *Contact email* under the Panel's settings and it appears in
+  the footer, under the app FAQ and at the end of each privacy policy. The Microsoft Store also asks for a support
+  contact and a privacy policy URL: `https://stackwerk.co/apps/winston/privacy` is Winston's.
 - **Search and sharing.** Every page has a description, canonical URL and Open Graph image (`og.png` in a page's folder,
   else `assets/images/og.png`); app pages add `SoftwareApplication` structured data.
 
@@ -58,10 +61,8 @@ template; fields are separated by `----`. Text fields use [KirbyText](https://ge
 1. In the Panel, open **Apps** and add a page. Pick the **App** template.
 2. On **Overview**, fill in the tagline, summary, platform, price and accent colour, upload the icon to the *App icon*
    section, and choose a *Hero screenshot*.
-3. On **Downloads**, set the GitHub repository (`owner/repo`) and add a download for each file in its releases. The file
-   pattern uses `*` for the parts that change, like the version: `MyApp-Setup-*-x64.exe`. Switch on *Main button* for
-   the one most people need. Leave the repository empty and set *Availability* to *Coming soon* for an app that
-   isn't out yet.
+3. On **Microsoft Store**, add the install steps and requirements. Once the app is live in the Store, fill in its
+   *Store ID* (Partner Center → the app → Product identity, 12 characters like `9XXXXXXXXXXX`) and the badges appear.
 4. Fill in **Features**, upload **Screenshots** (each needs alternative text), and add **FAQ** entries.
 5. To give the app a privacy policy, add a page under it with the **Policy** template; the app page links to it.
 6. Set the page to **Public** (listed) so it appears on the home page and in the menus.
@@ -75,8 +76,8 @@ To feature a different app on the home page, pick it as *Spotlight app* on the h
 | `content/` | All pages, images and text |
 | `site/blueprints/` | The Panel's forms for each page type (`pages/`), file type (`files/`), and the site |
 | `site/templates/`, `site/snippets/` | The HTML. `snippets/layout.php` is the page shell: head, header and footer |
-| `site/controllers/app.php` | Gets an app page's release, downloads and screenshots ready for its template |
-| `site/plugins/stackwerk/` | The GitHub release lookup, page helpers (`appIcon`, `accentStyle`, `downloadLinks`…), sitemap, robots and `/<app>` short links |
+| `site/controllers/app.php` | Gets an app page's Store link, hero and screenshots ready for its template |
+| `site/plugins/stackwerk/` | Page helpers (`appIcon`, `accentStyle`, `storeUrl`, `isComingSoon`…), sitemap, robots and `/<app>` short links |
 | `site/config/` | Settings; `config.localhost.php` and `config.stackwerk.co.php` apply only on those hosts |
 | `assets/css/site.css` | All the styles, with colours as variables at the top |
 | `assets/fonts/` | Space Grotesk and Inter (SIL Open Font License) |
@@ -150,7 +151,6 @@ server {
 
 ## Screenshots
 
-Winston's screenshots come from its own CI: the *smoke-screenshots* artifact of a
-[Winston build](https://github.com/JamesNMartin/Winston/actions) (the `smoke-signedin` folder), which shows made-up
-accounts on a test server. To refresh them, replace the images in `content/1_apps/1_winston/` keeping their file
+Winston's screenshots come from its own CI: the *smoke-screenshots* artifact of a Winston build (the `smoke-signedin`
+folder), which shows made-up accounts on a test server. To refresh them, replace the images in `content/1_apps/1_winston/` keeping their file
 names, or upload new ones in the Panel.

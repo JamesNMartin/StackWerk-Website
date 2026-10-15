@@ -14,20 +14,21 @@ Text:
 
 ## The short version
 
-- Winston has no StackWerk account, no analytics, no crash reporting and no ads.
+- Winston has no StackWerk account, and no analytics, ads or tracking of its own.
 - It connects to the Mastodon servers you sign in to, and to websites only when you open them.
 - Your settings, accounts and drafts are stored on your PC, and your sign-in tokens are encrypted by Windows.
+- Winston comes from the Microsoft Store, so Microsoft's privacy statement covers installing and updating it.
 
 ## What Winston stores on your PC
 
-Winston keeps its data in `%LOCALAPPDATA%\Winston` on your PC:
+Winston keeps its data in its own folder on your PC:
 
 - **Accounts:** the servers you've signed in to and an access token for each. Tokens are encrypted with Windows' Data Protection API (DPAPI), so only your Windows user account can read them.
 - **Settings:** your preferences, such as theme, columns and keyboard shortcuts.
 - **Drafts:** posts you closed without posting, including their attachments and descriptions, until you post or discard them.
-- **Web panel data:** when you open links inside Winston, Microsoft Edge WebView2 keeps its usual browsing data (such as cookies and cache) in a folder of its own here.
+- **Web panel data:** when you open links inside Winston, Microsoft Edge WebView2 keeps its usual browsing data (such as cookies and cache) in a folder of its own.
 
-Uninstalling Winston leaves this folder in place so your accounts survive a reinstall. Delete the folder to remove everything.
+Signing out of an account in Winston asks your server to revoke Winston's access and removes the account from your PC.
 
 ## Who Winston talks to
 
@@ -44,6 +45,10 @@ Winston doesn't send any of this to StackWerk.
 - **Catch up** picks out the posts you missed on your PC, from the feed your server sends.
 - **Notifications** are shown with Windows' own notifications.
 
+## The Microsoft Store
+
+Winston is installed and updated through the Microsoft Store, under the (link: https://privacy.microsoft.com/privacystatement text: Microsoft Privacy Statement). Microsoft gives app publishers reports in Partner Center, such as how many people installed an app, its ratings and reviews, and crash reports that Windows collects according to your diagnostic data settings (Settings → Privacy & security → Diagnostics & feedback). StackWerk uses these reports only to see how Winston is doing and to fix problems.
+
 ## Signing in
 
 Winston signs in with your server's standard OAuth flow: it opens your browser, you approve Winston on your server's own page, and the server gives Winston an access token. Winston never sees your password.
@@ -52,13 +57,9 @@ Winston signs in with your server's standard OAuth flow: it opens your browser, 
 
 If Winston starts handling data differently, this page will be updated first, with a new date at the top.
 
-## Questions
-
-Ask on (link: https://github.com/JamesNMartin/Winston/issues text: Winston's GitHub page).
-
 ----
 
-Description: How Winston, StackWerk's Mastodon client for Windows, handles your data: no analytics or tracking, and everything kept on your PC.
+Description: How Winston, StackWerk's Mastodon client for Windows, handles your data: no analytics or tracking of its own, and everything kept on your PC.
 
 ----
 

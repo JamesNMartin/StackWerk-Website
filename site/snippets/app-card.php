@@ -14,8 +14,8 @@ $meta = array_filter([$app->platform()->value(), $app->price()->value()]);
   <div class="app-card__body">
     <h3 class="app-card__title">
       <a href="<?= $app->url() ?>"><?= $app->title()->html() ?></a>
-      <?php if ($app->availability()->value() === 'beta'): ?><span class="badge">Beta</span><?php endif ?>
-      <?php if ($app->availability()->value() === 'soon'): ?><span class="badge">Coming soon</span><?php endif ?>
+      <?php if ($app->isComingSoon()): ?><span class="badge">Coming soon</span>
+      <?php elseif ($app->availability()->value() === 'beta'): ?><span class="badge">Beta</span><?php endif ?>
     </h3>
     <p class="app-card__tagline"><?= $app->tagline()->html() ?></p>
     <?php if ($meta): ?>

@@ -28,6 +28,9 @@ check() {
   elif grep -qi '^set-cookie:' "$headers"; then
     echo "FAIL $path: sets a cookie, but the privacy page promises visitors none"
     failures=$((failures + 1))
+  elif grep -qi 'github\.com' "$body"; then
+    echo "FAIL $path: links to GitHub, but the apps are closed source and come from the Microsoft Store"
+    failures=$((failures + 1))
   else
     local missing=""
     for text in "$@"; do
@@ -45,7 +48,7 @@ check() {
 
 check /                     200 'Native apps' 'Meet Winston' 'href="'"$base"'/apps/winston"'
 check /apps                 200 'Winston' 'A native Windows 11 client for Mastodon.'
-check /apps/winston         200 'Download for Windows' 'Download Winston' 'application/ld+json' 'id="features"' 'id="faq"'
+check /apps/winston         200 'Get Winston' 'Microsoft Store' 'application/ld+json' 'id="features"' 'id="faq"'
 check /apps/winston/privacy 200 'Privacy policy' 'Last updated'
 check /about                200 'StackWerk is a one-person software workshop'
 check /privacy              200 'No cookies for visitors'
@@ -53,15 +56,6 @@ check /no-such-page         404 'This page wandered off.'
 check /winston              302
 check /sitemap.xml          200 '<urlset' '/apps/winston</loc>'
 check /robots.txt           200 'Sitemap:'
-
-# Download buttons should point at the files of Winston's latest release. GitHub can
-# be unreachable or rate-limit a runner, so this only warns: the page then links to
-# the releases page instead.
-if curl -s "$base/apps/winston" | grep -q 'releases/download/'; then
-  echo "ok   download buttons link to the latest release's files"
-else
-  echo "warn download buttons link to the releases page (GitHub couldn't be reached?)"
-fi
 
 if [ "$failures" -gt 0 ]; then
   echo "$failures check(s) failed"
