@@ -47,6 +47,18 @@ composer test       # in another terminal: checks every page responds as it shou
 
 On `localhost` Kirby runs with debug mode on (`site/config/config.localhost.php`), so errors show in the browser.
 
+**On Windows**, one script does all of this: it installs PHP with winget if needed, sets up its `php.ini` (extension
+folder and the extensions Composer and Kirby need), gets Composer, runs `composer install` and starts the site.
+It's safe to run every time you want to work on the site, and doesn't need admin:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-dev.ps1
+```
+
+`-NoStart` sets up without starting the site, and `-Port 8080` uses another port. The script also adds a `composer`
+command to your PowerShell profile that runs Composer through PHP, for setups where Composer's own `composer.bat`
+can't find PHP.
+
 ### Editing content
 
 Open **http://localhost:8000/panel**. The first visit asks you to create an account; that account lives in
